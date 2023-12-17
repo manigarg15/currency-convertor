@@ -6,6 +6,7 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
+const swapIcon = document.querySelector("i");
 
 
 for(let select of dropdowns){
@@ -64,4 +65,12 @@ btn.addEventListener("click", (evt) => {
 
 window.addEventListener("load", ()=>{
     updateExchangeRate();
+})
+
+swapIcon.addEventListener("click", () => {
+    let temp = fromCurr.value;
+    fromCurr.value = toCurr.value;
+    toCurr.value = temp;
+    updateFlag(fromCurr);
+    updateFlag(toCurr);
 })
